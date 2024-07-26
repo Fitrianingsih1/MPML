@@ -46,66 +46,77 @@ def preprocess_input(user_input):
 st.markdown("""
     <style>
     body {
-        background: linear-gradient(135deg, #FF7E5F, #FEB47B); /* Gradient Background */
-        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(135deg, #F3F4F6, #E2E2E2); /* Soft Gradient Background */
+        font-family: 'Arial', sans-serif;
         margin: 0;
         padding: 0;
     }
     .container {
         max-width: 900px;
-        margin: 50px auto;
+        margin: 30px auto;
         padding: 20px;
         background-color: #FFFFFF; /* White Background */
-        border-radius: 15px;
+        border-radius: 20px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        animation: slideIn 0.5s ease-in-out;
+        position: relative;
+        overflow: hidden;
     }
-    @keyframes slideIn {
-        from {
-            transform: translateY(-50px);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
+    .container::before {
+        content: "";
+        position: absolute;
+        top: -10%;
+        left: -10%;
+        width: 120%;
+        height: 120%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, rgba(255, 255, 255, 0) 40%);
+        z-index: 0;
+        animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+        0% { transform: scale(1); opacity: 0.5; }
+        50% { transform: scale(1.2); opacity: 0.2; }
+        100% { transform: scale(1); opacity: 0.5; }
     }
     h1 {
         color: #333333; /* Dark Gray */
         text-align: center;
         margin-bottom: 20px;
-        font-weight: 700;
+        font-weight: bold;
         font-size: 2.5em;
+        z-index: 1;
+        position: relative;
     }
     h3 {
         color: #555555; /* Medium Gray */
         text-align: center;
         margin-bottom: 15px;
-        font-weight: 500;
+        font-weight: normal;
         font-size: 1.5em;
+        z-index: 1;
+        position: relative;
     }
     .stButton>button {
-        background-color: #FF6F61; /* Coral */
+        background: linear-gradient(135deg, #FF6F61, #FF3F3F); /* Gradient Button */
         color: #FFFFFF; /* White */
         padding: 12px 24px;
         border: none;
-        border-radius: 50px;
+        border-radius: 30px;
         cursor: pointer;
         font-size: 16px;
-        font-weight: 600;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        font-weight: bold;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         transition: all 0.3s ease;
         display: flex;
         align-items: center;
         justify-content: center;
     }
     .stButton>button:hover {
-        background-color: #FF4C4C; /* Darker Coral */
+        background: linear-gradient(135deg, #FF4C4C, #FF1A1A); /* Darker Gradient on Hover */
         transform: translateY(-3px);
     }
     .stButton>button:active {
         transform: translateY(1px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
     .stButton>button svg {
         margin-right: 8px;
@@ -113,11 +124,13 @@ st.markdown("""
     .stNumberInput, .stSelectbox {
         margin-bottom: 20px;
         border: 2px solid #DDDDDD;
-        border-radius: 12px;
+        border-radius: 15px;
         padding: 12px;
         font-size: 16px;
         box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
         transition: border-color 0.3s, box-shadow 0.3s;
+        z-index: 1;
+        position: relative;
     }
     .stNumberInput:hover, .stSelectbox:hover {
         border-color: #FF6F61; /* Coral */
@@ -127,10 +140,10 @@ st.markdown("""
         color: #28A745; /* Green */
         font-size: 22px;
         text-align: center;
-        font-weight: 600;
+        font-weight: bold;
         padding: 20px;
         border: 2px solid #28A745;
-        border-radius: 12px;
+        border-radius: 15px;
         background-color: #E9FBE9; /* Light Green */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         margin-top: 20px;
@@ -149,6 +162,8 @@ st.markdown("""
         text-align: center;
         font-size: 14px;
         padding: 10px;
+        z-index: 1;
+        position: relative;
     }
     </style>
 """, unsafe_allow_html=True)
