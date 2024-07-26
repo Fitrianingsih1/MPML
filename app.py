@@ -53,6 +53,7 @@ st.markdown("""
     }
     h1 {
         color: #333333; /* Dark Gray */
+        text-align: center;
         font-size: 2em;
         margin: 0;
         font-weight: bold;
