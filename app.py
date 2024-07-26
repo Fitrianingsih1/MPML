@@ -42,47 +42,61 @@ def preprocess_input(user_input):
     processed_input = pd.DataFrame(processed_input)
     processed_input[numeric_features] = scaler.transform(processed_input[numeric_features])
     return processed_input
-# CSS untuk gaya dengan warna modern
+# CSS untuk gaya dengan desain modern dan menarik
 st.markdown("""
     <style>
     .main {
-        background-color: #F8F9FA; /* Light Gray */
-        font-family: 'Roboto', sans-serif;
+        background-color: #F5F5F5; /* Light Gray */
+        font-family: 'Poppins', sans-serif;
     }
-    h1, h3, label, .stSelectbox label, .stNumberInput label, .stTextInput label {
-        color: #343A40; /* Dark Gray */
-        font-family: 'Roboto', sans-serif;
-        text-align: center; /* Memusatkan teks */
+    h1, h3 {
+        color: #333333; /* Dark Gray */
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        padding: 20px;
+        font-weight: 600;
     }
     .stButton>button {
         background-color: #007BFF; /* Blue */
         color: #FFFFFF; /* White */
         padding: 12px 24px;
         border: none;
-        border-radius: 5px;
+        border-radius: 8px;
         cursor: pointer;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Poppins', sans-serif;
         font-size: 16px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, transform 0.2s;
     }
     .stButton>button:hover {
         background-color: #0056b3; /* Darker Blue */
+        transform: scale(1.05); /* Zoom effect on hover */
     }
     .stNumberInput, .stSelectbox {
         margin-bottom: 20px;
     }
     .stSelectbox, .stNumberInput {
-        padding: 8px 12px; /* Mengurangi padding di dalam input box */
-        font-size: 16px; /* Ukuran teks lebih besar */
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 1px solid #DDDDDD;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
     }
     .prediction-output {
         color: #28A745; /* Green */
-        font-size: 20px; /* Ukuran teks lebih besar */
-        text-align: center; /* Memusatkan teks */
+        font-size: 20px;
+        text-align: center;
+        font-weight: 600;
+        padding: 20px;
+        border: 2px solid #28A745;
+        border-radius: 8px;
+        background-color: #E9FBE9; /* Light Green */
     }
     .info-text {
         color: #6C757D; /* Gray */
-        text-align: center; /* Memusatkan teks */
+        text-align: center;
         font-size: 14px;
+        padding: 10px;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -128,7 +142,6 @@ if st.button('Predict'):
     user_input_processed = preprocess_input(user_input)
     try:
         prediction = model.predict(user_input_processed)
-        # Pemetaan hasil model ke "Terdapat feedback" atau "Tidak terdapat feedback"
         result = 'Terdapat feedback' if prediction[0] == 1 else 'Tidak terdapat feedback'
         st.markdown(f"<h3 class='prediction-output'> {result}</h3>", unsafe_allow_html=True)
     except ValueError as e:
