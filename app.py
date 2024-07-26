@@ -42,11 +42,11 @@ def preprocess_input(user_input):
     processed_input = pd.DataFrame(processed_input)
     processed_input[numeric_features] = scaler.transform(processed_input[numeric_features])
     return processed_input
-# CSS untuk desain inovatif dan modern
+# CSS untuk desain modern dan bersih
 st.markdown("""
     <style>
     body {
-        background: linear-gradient(135deg, #FFDEE9, #B5AAFF); /* Soft Gradient Background */
+        background-color: #F0F0F0; /* Light Gray Background */
         font-family: 'Arial', sans-serif;
         margin: 0;
         padding: 0;
@@ -56,22 +56,9 @@ st.markdown("""
         margin: 40px auto;
         padding: 20px;
         background-color: #FFFFFF; /* White Background */
-        border-radius: 15px;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         position: relative;
-        overflow: hidden;
-        z-index: 1;
-    }
-    .container::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0) 60%);
-        z-index: 0;
-        opacity: 0.5;
     }
     h1 {
         color: #333333; /* Dark Gray */
@@ -79,8 +66,6 @@ st.markdown("""
         margin-bottom: 20px;
         font-weight: bold;
         font-size: 2.5em;
-        z-index: 1;
-        position: relative;
     }
     h3 {
         color: #555555; /* Medium Gray */
@@ -88,8 +73,6 @@ st.markdown("""
         margin-bottom: 15px;
         font-weight: normal;
         font-size: 1.5em;
-        z-index: 1;
-        position: relative;
     }
     .stButton>button {
         background: linear-gradient(45deg, #FF8C00, #FF6347); /* Gradient Button */
@@ -105,7 +88,6 @@ st.markdown("""
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 1;
     }
     .stButton>button:hover {
         background: linear-gradient(45deg, #FF6F00, #FF4500); /* Darker Gradient on Hover */
@@ -123,8 +105,6 @@ st.markdown("""
         font-size: 16px;
         box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
         transition: border-color 0.3s, box-shadow 0.3s;
-        z-index: 1;
-        position: relative;
     }
     .stNumberInput:hover, .stSelectbox:hover {
         border-color: #FF8C00; /* Coral */
@@ -142,8 +122,6 @@ st.markdown("""
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         margin-top: 20px;
         animation: fadeIn 0.5s ease-in-out;
-        z-index: 1;
-        position: relative;
     }
     @keyframes fadeIn {
         from {
@@ -152,14 +130,6 @@ st.markdown("""
         to {
             opacity: 1;
         }
-    }
-    .info-text {
-        color: #6C757D; /* Gray */
-        text-align: center;
-        font-size: 14px;
-        padding: 10px;
-        z-index: 1;
-        position: relative;
     }
     </style>
 """, unsafe_allow_html=True)
