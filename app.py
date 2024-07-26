@@ -46,14 +46,18 @@ def preprocess_input(user_input):
 st.markdown("""
     <style>
     body {
-        background-color: #F0F2F6; /* Light Gray */
-        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(to right, #FDE2E4, #FFFFFF); /* Gradient Background */
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
     }
-    .main {
-        background-color: #FFFFFF; /* White Background */
+    .container {
+        max-width: 800px;
+        margin: 30px auto;
         padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        background-color: #FFFFFF; /* White Background */
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
     h1 {
         color: #333333; /* Dark Gray */
@@ -64,30 +68,37 @@ st.markdown("""
     h3 {
         color: #555555; /* Medium Gray */
         text-align: center;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+        font-weight: 500;
     }
     .stButton>button {
-        background-color: #007BFF; /* Blue */
+        background-color: #FF6F61; /* Coral */
         color: #FFFFFF; /* White */
         padding: 12px 24px;
         border: none;
-        border-radius: 10px;
+        border-radius: 50px;
         cursor: pointer;
         font-size: 16px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        transition: background-color 0.3s, transform 0.2s;
+        font-weight: 600;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
     }
     .stButton>button:hover {
-        background-color: #0056b3; /* Darker Blue */
-        transform: scale(1.05);
+        background-color: #FF4C4C; /* Darker Coral */
+        transform: translateY(-3px);
     }
     .stNumberInput, .stSelectbox {
         margin-bottom: 20px;
-        border: 1px solid #DDDDDD;
-        border-radius: 10px;
+        border: 2px solid #DDDDDD;
+        border-radius: 12px;
         padding: 12px;
         font-size: 16px;
         box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .stNumberInput:hover, .stSelectbox:hover {
+        border-color: #FF6F61; /* Coral */
+        box-shadow: 0 0 8px rgba(255, 111, 97, 0.3);
     }
     .prediction-output {
         color: #28A745; /* Green */
@@ -96,7 +107,7 @@ st.markdown("""
         font-weight: 600;
         padding: 20px;
         border: 2px solid #28A745;
-        border-radius: 10px;
+        border-radius: 12px;
         background-color: #E9FBE9; /* Light Green */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         margin-top: 20px;
@@ -111,7 +122,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Antarmuka Streamlit
-st.markdown('<div class="main">', unsafe_allow_html=True)
+st.markdown('<div class="container">', unsafe_allow_html=True)
 st.title("Prediksi Feedback Pelanggan")
 
 st.markdown("<h3>Masukkan Data Pelanggan</h3>", unsafe_allow_html=True)
