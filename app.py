@@ -52,14 +52,14 @@ st.markdown("""
         padding: 0;
     }
     h1 {
-        color: #F0EBE3; /* Dark Gray */
+        color: #B4B4B8; /* Silver Bullet */
         text-align: center;
         font-size: 2em;
         margin: 0;
         font-weight: bold;
     }
     h3 {
-        color: #F0EBE3; /* Medium Gray */
+        color: #B4B4B8; /* Silver Bullet */
         text-align: center;
         margin-bottom: 15px;
         font-weight: normal;
