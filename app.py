@@ -51,13 +51,6 @@ st.markdown("""
         margin: 0;
         padding: 0;
     }
-    .header {
-        background-color: #FFFFFF; /* White Background for Header */
-        padding: 20px;
-        border-radius: 10px;
-        margin: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
     .container {
         padding: 20px;
         background-color: #FFFFFF; /* White Background for Container */
