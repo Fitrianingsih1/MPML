@@ -52,14 +52,14 @@ st.markdown("""
         padding: 0;
     }
     h1 {
-        color: #333333; /* Dark Gray */
+        color: #F0EBE3; /* Dark Gray */
         text-align: center;
         font-size: 2em;
         margin: 0;
         font-weight: bold;
     }
     h3 {
-        color: #555555; /* Medium Gray */
+        color: #F0EBE3; /* Medium Gray */
         text-align: center;
         margin-bottom: 15px;
         font-weight: normal;
