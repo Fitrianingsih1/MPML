@@ -46,7 +46,7 @@ def preprocess_input(user_input):
 st.markdown("""
     <style>
     body {
-        background-color: #EEEEEE; /* Soft Gray Background */
+        background-color: #C7C8CC; /* Nimbus Cloud Background */
         font-family: 'Arial', sans-serif;
         margin: 0;
         padding: 0;
