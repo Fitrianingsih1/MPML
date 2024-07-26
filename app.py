@@ -42,7 +42,7 @@ def preprocess_input(user_input):
     processed_input = pd.DataFrame(processed_input)
     processed_input[numeric_features] = scaler.transform(processed_input[numeric_features])
     return processed_input
-# CSS untuk desain dengan latar belakang abu soft dan header putih
+# CSS untuk desain dengan latar belakang abu soft dan tanpa kolom putih
 st.markdown("""
     <style>
     body {
@@ -60,7 +60,7 @@ st.markdown("""
         margin-bottom: 20px;
     }
     .container {
-        max-width: 800px;
+        max-width: 600px;
         margin: 0 auto;
         padding: 20px;
         background-color: #FFFFFF; /* White Background */
@@ -149,7 +149,7 @@ st.markdown('<div class="container">', unsafe_allow_html=True)
 
 st.markdown("<h3>Masukkan Data Pelanggan</h3>", unsafe_allow_html=True)
 
-# Input pengguna di dalam satu kolom
+# Input pengguna
 age = st.number_input('Age', min_value=18, max_value=100)
 gender = st.selectbox('Gender', ['Male', 'Female'])
 marital_status = st.selectbox('Marital Status', ['Single', 'Married'])
@@ -160,79 +160,6 @@ family_size = st.number_input('Family size', min_value=1, max_value=20)
 latitude = st.number_input('Latitude', format="%f")
 longitude = st.number_input('Longitude', format="%f")
 pin_code = st.number_input('Pin code', min_value=100000, max_value=999999)
-
-user_input = {
-    'Age': age,
-    'Gender': gender,
-    'Marital Status': marital_status,
-    'Occupation': occupation,
-    'Monthly Income': monthly_income,
-    'Educational Qualifications': educational_qualifications,
-    'Family size': family_size,
-    'latitude': latitude,
-    'longitude': longitude,
-    'Pin code': pin_code
-}
-
-if st.button('Predict'):
-    with st.spinner('Memproses...'):
-        user_input_processed = preprocess_input(user_input)
-        try:
-            prediction = model.predict(user_input_processed)
-            result = 'Terdapat feedback' if prediction[0] == 1 else 'Tidak terdapat feedback'
-            st.markdown(f"<h3 class='prediction-output'>{result}</h3>", unsafe_allow_html=True)
-        except ValueError as e:
-            st.error(f"Error in prediction: {e}")
-
-st.markdown('</div>', unsafe_allow_html=True)ze: 22px;
-        text-align: center;
-        font-weight: bold;
-        padding: 20px;
-        border: 2px solid #28A745;
-        border-radius: 15px;
-        background-color: #E9FBE9; /* Light Green */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        margin-top: 20px;
-        animation: fadeIn 0.5s ease-in-out;
-    }
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-# Antarmuka Streamlit
-st.markdown('<div class="header">', unsafe_allow_html=True)
-st.markdown('<h1>Prediksi Feedback Pelanggan</h1>', unsafe_allow_html=True)
-st.markdown('</div>', unsafe_allow_html=True)
-
-st.markdown('<div class="container">', unsafe_allow_html=True)
-
-st.markdown("<h3>Masukkan Data Pelanggan</h3>", unsafe_allow_html=True)
-
-# Membagi input form menjadi dua kolom
-col1, col2 = st.columns(2)
-
-# Input pengguna di kolom kiri
-with col1:
-    age = st.number_input('Age', min_value=18, max_value=100)
-    gender = st.selectbox('Gender', ['Male', 'Female'])
-    marital_status = st.selectbox('Marital Status', ['Single', 'Married'])
-    occupation = st.selectbox('Occupation', ['Student', 'Employee', 'Self Employed'])
-    monthly_income = st.selectbox('Monthly Income', ['No Income', 'Below Rs.10000', '10001 to 25000', '25001 to 50000', 'More than 50000'])
-
-# Input pengguna di kolom kanan
-with col2:
-    educational_qualifications = st.selectbox('Educational Qualifications', ['Under Graduate', 'Graduate', 'Post Graduate'])
-    family_size = st.number_input('Family size', min_value=1, max_value=20)
-    latitude = st.number_input('Latitude', format="%f")
-    longitude = st.number_input('Longitude', format="%f")
-    pin_code = st.number_input('Pin code', min_value=100000, max_value=999999)
 
 user_input = {
     'Age': age,
