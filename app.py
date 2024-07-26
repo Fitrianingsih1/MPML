@@ -51,22 +51,6 @@ st.markdown("""
         margin: 0;
         padding: 0;
     }
-    .header {
-        background-color: #FFFFFF; /* White Background */
-        padding: 20px;
-        border-bottom: 2px solid #DDDDDD;
-        text-align: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
-    }
-    .container {
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #FFFFFF; /* White Background */
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
     h1 {
         color: #333333; /* Dark Gray */
         font-size: 2em;
