@@ -42,45 +42,47 @@ def preprocess_input(user_input):
     processed_input = pd.DataFrame(processed_input)
     processed_input[numeric_features] = scaler.transform(processed_input[numeric_features])
     return processed_input
-# CSS untuk gaya dengan warna baby pink dan biru tua
+# CSS untuk gaya dengan warna modern
 st.markdown("""
     <style>
     .main {
-        background-color: #FDE2E4; /* Baby Pink */
-        font-family: 'Arial', sans-serif;
+        background-color: #F8F9FA; /* Light Gray */
+        font-family: 'Roboto', sans-serif;
     }
     h1, h3, label, .stSelectbox label, .stNumberInput label, .stTextInput label {
-        color: #003366; /* Dark Blue */
-        font-family: 'Arial', sans-serif;
+        color: #343A40; /* Dark Gray */
+        font-family: 'Roboto', sans-serif;
         text-align: center; /* Memusatkan teks */
     }
     .stButton>button {
-        background-color: #FFC1CC; /* Light Pink */
-        color: #003366; /* Dark Blue */
-        padding: 10px 24px;
+        background-color: #007BFF; /* Blue */
+        color: #FFFFFF; /* White */
+        padding: 12px 24px;
         border: none;
-        border-radius: 4px;
+        border-radius: 5px;
         cursor: pointer;
-        font-family: 'Arial', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
     }
     .stButton>button:hover {
-        background-color: #FFA6C9; /* Darker Pink */
+        background-color: #0056b3; /* Darker Blue */
     }
     .stNumberInput, .stSelectbox {
         margin-bottom: 20px;
     }
     .stSelectbox, .stNumberInput {
-        padding: 6px 12px; /* Mengurangi padding di dalam input box */
-        font-size: 14px; /* Ukuran teks lebih besar */
+        padding: 8px 12px; /* Mengurangi padding di dalam input box */
+        font-size: 16px; /* Ukuran teks lebih besar */
     }
     .prediction-output {
-        color: #003366; /* Dark Blue */
-        font-size: 18px; /* Ukuran teks lebih besar */
+        color: #28A745; /* Green */
+        font-size: 20px; /* Ukuran teks lebih besar */
         text-align: center; /* Memusatkan teks */
     }
     .info-text {
-        color: #003366; /* Dark Blue */
+        color: #6C757D; /* Gray */
         text-align: center; /* Memusatkan teks */
+        font-size: 14px;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -88,7 +90,7 @@ st.markdown("""
 # Antarmuka Streamlit
 st.title("Prediksi Feedback Pelanggan")
 
-st.markdown("<h3 style='text-align: center;'>Masukkan Data Pelanggan</h3>", unsafe_allow_html=True)
+st.markdown("<h3>Masukkan Data Pelanggan</h3>", unsafe_allow_html=True)
 
 # Membagi input form menjadi dua kolom
 col1, col2 = st.columns(2)
