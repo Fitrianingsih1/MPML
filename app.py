@@ -42,30 +42,36 @@ def preprocess_input(user_input):
     processed_input = pd.DataFrame(processed_input)
     processed_input[numeric_features] = scaler.transform(processed_input[numeric_features])
     return processed_input
-# CSS untuk desain modern dan bersih
+# CSS untuk desain dengan latar belakang abu soft dan kolom putih
 st.markdown("""
     <style>
     body {
-        background-color: #F0F0F0; /* Light Gray Background */
+        background-color: #E0E0E0; /* Soft Gray Background */
         font-family: 'Arial', sans-serif;
         margin: 0;
         padding: 0;
     }
+    .header {
+        background-color: #FFFFFF; /* White Background */
+        padding: 20px;
+        border-bottom: 2px solid #DDDDDD;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
     .container {
         max-width: 800px;
-        margin: 40px auto;
+        margin: 0 auto;
         padding: 20px;
         background-color: #FFFFFF; /* White Background */
         border-radius: 10px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        position: relative;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     h1 {
         color: #333333; /* Dark Gray */
-        text-align: center;
-        margin-bottom: 20px;
+        font-size: 2em;
+        margin: 0;
         font-weight: bold;
-        font-size: 2.5em;
     }
     h3 {
         color: #555555; /* Medium Gray */
@@ -135,8 +141,11 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Antarmuka Streamlit
+st.markdown('<div class="header">', unsafe_allow_html=True)
+st.markdown('<h1>Prediksi Feedback Pelanggan</h1>', unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
+
 st.markdown('<div class="container">', unsafe_allow_html=True)
-st.title("Prediksi Feedback Pelanggan")
 
 st.markdown("<h3>Masukkan Data Pelanggan</h3>", unsafe_allow_html=True)
 
