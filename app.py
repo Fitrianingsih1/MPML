@@ -46,7 +46,7 @@ def preprocess_input(user_input):
 st.markdown("""
     <style>
     body {
-        background-color: #E0E0E0; /* Soft Gray Background */
+        background-color: #EEEEEE; /* Soft Gray Background */
         font-family: 'Arial', sans-serif;
         margin: 0;
         padding: 0;
