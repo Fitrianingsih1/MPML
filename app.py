@@ -42,55 +42,64 @@ def preprocess_input(user_input):
     processed_input = pd.DataFrame(processed_input)
     processed_input[numeric_features] = scaler.transform(processed_input[numeric_features])
     return processed_input
-# CSS untuk gaya dengan desain modern dan menarik
+# CSS untuk gaya inovatif dan modern
 st.markdown("""
     <style>
-    .main {
-        background-color: #F5F5F5; /* Light Gray */
-        font-family: 'Poppins', sans-serif;
+    body {
+        background-color: #F0F2F6; /* Light Gray */
+        font-family: 'Roboto', sans-serif;
     }
-    h1, h3 {
-        color: #333333; /* Dark Gray */
-        font-family: 'Poppins', sans-serif;
-        text-align: center;
+    .main {
+        background-color: #FFFFFF; /* White Background */
         padding: 20px;
-        font-weight: 600;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+        color: #333333; /* Dark Gray */
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+    h3 {
+        color: #555555; /* Medium Gray */
+        text-align: center;
+        margin-bottom: 10px;
     }
     .stButton>button {
         background-color: #007BFF; /* Blue */
         color: #FFFFFF; /* White */
         padding: 12px 24px;
         border: none;
-        border-radius: 8px;
+        border-radius: 10px;
         cursor: pointer;
-        font-family: 'Poppins', sans-serif;
         font-size: 16px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         transition: background-color 0.3s, transform 0.2s;
     }
     .stButton>button:hover {
         background-color: #0056b3; /* Darker Blue */
-        transform: scale(1.05); /* Zoom effect on hover */
+        transform: scale(1.05);
     }
     .stNumberInput, .stSelectbox {
         margin-bottom: 20px;
-    }
-    .stSelectbox, .stNumberInput {
+        border: 1px solid #DDDDDD;
+        border-radius: 10px;
         padding: 12px;
         font-size: 16px;
-        border-radius: 8px;
-        border: 1px solid #DDDDDD;
         box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
     }
     .prediction-output {
         color: #28A745; /* Green */
-        font-size: 20px;
+        font-size: 22px;
         text-align: center;
         font-weight: 600;
         padding: 20px;
         border: 2px solid #28A745;
-        border-radius: 8px;
+        border-radius: 10px;
         background-color: #E9FBE9; /* Light Green */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        margin-top: 20px;
     }
     .info-text {
         color: #6C757D; /* Gray */
@@ -102,6 +111,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Antarmuka Streamlit
+st.markdown('<div class="main">', unsafe_allow_html=True)
 st.title("Prediksi Feedback Pelanggan")
 
 st.markdown("<h3>Masukkan Data Pelanggan</h3>", unsafe_allow_html=True)
@@ -143,6 +153,8 @@ if st.button('Predict'):
     try:
         prediction = model.predict(user_input_processed)
         result = 'Terdapat feedback' if prediction[0] == 1 else 'Tidak terdapat feedback'
-        st.markdown(f"<h3 class='prediction-output'> {result}</h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3 class='prediction-output'>{result}</h3>", unsafe_allow_html=True)
     except ValueError as e:
         st.error(f"Error in prediction: {e}")
+
+st.markdown('</div>', unsafe_allow_html=True)
