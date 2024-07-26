@@ -51,22 +51,37 @@ st.markdown("""
         margin: 0;
         padding: 0;
     }
+    .header {
+        background-color: #FFFFFF; /* White Background for Header */
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .container {
+        padding: 20px;
+        background-color: #FFFFFF; /* White Background for Container */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        margin: auto;
+    }
     h1 {
-        color: #B4B4B8; /* Silver Bullet */
+        color: #333; /* Dark Text */
         text-align: center;
         font-size: 2em;
         margin: 0;
         font-weight: bold;
     }
     h3 {
-        color: #B4B4B8; /* Silver Bullet */
+        color: #333; /* Dark Text */
         text-align: center;
         margin-bottom: 15px;
         font-weight: normal;
         font-size: 1.5em;
     }
     .stButton>button {
-        background: linear-gradient(45deg, #FF8C00, #FF6347); /* Gradient Button */
+        background-color: #B4B4B8; /* Silver Bullet */
         color: #FFFFFF; /* White */
         padding: 12px 20px;
         border: none;
@@ -81,7 +96,7 @@ st.markdown("""
         justify-content: center;
     }
     .stButton>button:hover {
-        background: linear-gradient(45deg, #FF6F00, #FF4500); /* Darker Gradient on Hover */
+        background-color: #9E9E9E; /* Darker Silver Bullet on Hover */
         transform: translateY(-3px);
     }
     .stButton>button:active {
@@ -99,7 +114,7 @@ st.markdown("""
     }
     .stNumberInput:hover, .stSelectbox:hover {
         border-color: #B4B4B8; /* Silver Bullet */
-        box-shadow: 0 0 8px rgba(255, 140, 0, 0.3);
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     }
     .prediction-output {
         color: #28A745; /* Green */
