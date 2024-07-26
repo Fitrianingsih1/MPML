@@ -42,40 +42,36 @@ def preprocess_input(user_input):
     processed_input = pd.DataFrame(processed_input)
     processed_input[numeric_features] = scaler.transform(processed_input[numeric_features])
     return processed_input
-# CSS untuk gaya inovatif dan modern
+# CSS untuk desain inovatif dan modern
 st.markdown("""
     <style>
     body {
-        background: linear-gradient(135deg, #F3F4F6, #E2E2E2); /* Soft Gradient Background */
+        background: linear-gradient(135deg, #FFDEE9, #B5AAFF); /* Soft Gradient Background */
         font-family: 'Arial', sans-serif;
         margin: 0;
         padding: 0;
     }
     .container {
-        max-width: 900px;
-        margin: 30px auto;
+        max-width: 800px;
+        margin: 40px auto;
         padding: 20px;
         background-color: #FFFFFF; /* White Background */
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         position: relative;
         overflow: hidden;
+        z-index: 1;
     }
     .container::before {
         content: "";
         position: absolute;
-        top: -10%;
-        left: -10%;
-        width: 120%;
-        height: 120%;
-        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, rgba(255, 255, 255, 0) 40%);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0) 60%);
         z-index: 0;
-        animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-        0% { transform: scale(1); opacity: 0.5; }
-        50% { transform: scale(1.2); opacity: 0.2; }
-        100% { transform: scale(1); opacity: 0.5; }
+        opacity: 0.5;
     }
     h1 {
         color: #333333; /* Dark Gray */
@@ -96,35 +92,33 @@ st.markdown("""
         position: relative;
     }
     .stButton>button {
-        background: linear-gradient(135deg, #FF6F61, #FF3F3F); /* Gradient Button */
+        background: linear-gradient(45deg, #FF8C00, #FF6347); /* Gradient Button */
         color: #FFFFFF; /* White */
-        padding: 12px 24px;
+        padding: 12px 20px;
         border: none;
         border-radius: 30px;
         cursor: pointer;
         font-size: 16px;
         font-weight: bold;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease;
         display: flex;
         align-items: center;
         justify-content: center;
+        z-index: 1;
     }
     .stButton>button:hover {
-        background: linear-gradient(135deg, #FF4C4C, #FF1A1A); /* Darker Gradient on Hover */
+        background: linear-gradient(45deg, #FF6F00, #FF4500); /* Darker Gradient on Hover */
         transform: translateY(-3px);
     }
     .stButton>button:active {
         transform: translateY(1px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    .stButton>button svg {
-        margin-right: 8px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
     .stNumberInput, .stSelectbox {
         margin-bottom: 20px;
         border: 2px solid #DDDDDD;
-        border-radius: 15px;
+        border-radius: 12px;
         padding: 12px;
         font-size: 16px;
         box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -133,8 +127,8 @@ st.markdown("""
         position: relative;
     }
     .stNumberInput:hover, .stSelectbox:hover {
-        border-color: #FF6F61; /* Coral */
-        box-shadow: 0 0 8px rgba(255, 111, 97, 0.3);
+        border-color: #FF8C00; /* Coral */
+        box-shadow: 0 0 8px rgba(255, 140, 0, 0.3);
     }
     .prediction-output {
         color: #28A745; /* Green */
@@ -148,6 +142,8 @@ st.markdown("""
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         margin-top: 20px;
         animation: fadeIn 0.5s ease-in-out;
+        z-index: 1;
+        position: relative;
     }
     @keyframes fadeIn {
         from {
