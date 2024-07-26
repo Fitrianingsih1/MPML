@@ -98,7 +98,7 @@ st.markdown("""
         transition: border-color 0.3s, box-shadow 0.3s;
     }
     .stNumberInput:hover, .stSelectbox:hover {
-        border-color: #FF8C00; /* Coral */
+        border-color: #B4B4B8; /* Silver Bullet */
         box-shadow: 0 0 8px rgba(255, 140, 0, 0.3);
     }
     .prediction-output {
