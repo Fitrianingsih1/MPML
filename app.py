@@ -42,17 +42,16 @@ def preprocess_input(user_input):
     processed_input = pd.DataFrame(processed_input)
     processed_input[numeric_features] = scaler.transform(processed_input[numeric_features])
     return processed_input
-
 # CSS untuk gaya dengan warna baby pink dan biru tua
 st.markdown("""
     <style>
     .main {
         background-color: #FDE2E4; /* Baby Pink */
-        font-family: 'Baloo 2', cursive;
+        font-family: 'Arial', sans-serif;
     }
     h1, h3, label, .stSelectbox label, .stNumberInput label, .stTextInput label {
         color: #003366; /* Dark Blue */
-        font-family: 'Baloo 2', cursive;
+        font-family: 'Arial', sans-serif;
         text-align: center; /* Memusatkan teks */
     }
     .stButton>button {
@@ -62,7 +61,7 @@ st.markdown("""
         border: none;
         border-radius: 4px;
         cursor: pointer;
-        font-family: 'Baloo 2', cursive;
+        font-family: 'Arial', sans-serif;
     }
     .stButton>button:hover {
         background-color: #FFA6C9; /* Darker Pink */
@@ -87,7 +86,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Antarmuka Streamlit
-st.title("Feedback Pelanggan Online Food")
+st.title("Prediksi Feedback Pelanggan")
 
 st.markdown("<h3 style='text-align: center;'>Masukkan Data Pelanggan</h3>", unsafe_allow_html=True)
 
@@ -127,8 +126,8 @@ if st.button('Predict'):
     user_input_processed = preprocess_input(user_input)
     try:
         prediction = model.predict(user_input_processed)
-        # Pemetaan hasil model ke "Pelanggan terdaftar" atau "Pelanggan tidak terdaftar"
+        # Pemetaan hasil model ke "Terdapat feedback" atau "Tidak terdapat feedback"
         result = 'Terdapat feedback' if prediction[0] == 1 else 'Tidak terdapat feedback'
-        st.markdown(f"<h3> {result}</h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3 class='prediction-output'> {result}</h3>", unsafe_allow_html=True)
     except ValueError as e:
         st.error(f"Error in prediction: {e}")
