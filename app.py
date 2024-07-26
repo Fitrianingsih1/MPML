@@ -45,7 +45,7 @@ def preprocess_input(user_input):
 # CSS untuk desain dengan latar belakang abu soft dan tanpa kolom putih
 st.markdown("""
     <style>
-    .main {
+    body {
         background-color: #B4B4B8; /* Silver Bullet Background */
         font-family: 'Arial', sans-serif;
         margin: 0;
