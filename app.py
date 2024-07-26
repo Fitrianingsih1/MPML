@@ -46,30 +46,43 @@ def preprocess_input(user_input):
 st.markdown("""
     <style>
     body {
-        background: linear-gradient(to right, #FDE2E4, #FFFFFF); /* Gradient Background */
-        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #FF7E5F, #FEB47B); /* Gradient Background */
+        font-family: 'Roboto', sans-serif;
         margin: 0;
         padding: 0;
     }
     .container {
-        max-width: 800px;
-        margin: 30px auto;
+        max-width: 900px;
+        margin: 50px auto;
         padding: 20px;
         background-color: #FFFFFF; /* White Background */
         border-radius: 15px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        animation: slideIn 0.5s ease-in-out;
+    }
+    @keyframes slideIn {
+        from {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
     h1 {
         color: #333333; /* Dark Gray */
         text-align: center;
         margin-bottom: 20px;
         font-weight: 700;
+        font-size: 2.5em;
     }
     h3 {
         color: #555555; /* Medium Gray */
         text-align: center;
         margin-bottom: 15px;
         font-weight: 500;
+        font-size: 1.5em;
     }
     .stButton>button {
         background-color: #FF6F61; /* Coral */
@@ -82,10 +95,20 @@ st.markdown("""
         font-weight: 600;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .stButton>button:hover {
         background-color: #FF4C4C; /* Darker Coral */
         transform: translateY(-3px);
+    }
+    .stButton>button:active {
+        transform: translateY(1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .stButton>button svg {
+        margin-right: 8px;
     }
     .stNumberInput, .stSelectbox {
         margin-bottom: 20px;
@@ -111,6 +134,15 @@ st.markdown("""
         background-color: #E9FBE9; /* Light Green */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         margin-top: 20px;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
     }
     .info-text {
         color: #6C757D; /* Gray */
@@ -160,12 +192,13 @@ user_input = {
 }
 
 if st.button('Predict'):
-    user_input_processed = preprocess_input(user_input)
-    try:
-        prediction = model.predict(user_input_processed)
-        result = 'Terdapat feedback' if prediction[0] == 1 else 'Tidak terdapat feedback'
-        st.markdown(f"<h3 class='prediction-output'>{result}</h3>", unsafe_allow_html=True)
-    except ValueError as e:
-        st.error(f"Error in prediction: {e}")
+    with st.spinner('Memproses...'):
+        user_input_processed = preprocess_input(user_input)
+        try:
+            prediction = model.predict(user_input_processed)
+            result = 'Terdapat feedback' if prediction[0] == 1 else 'Tidak terdapat feedback'
+            st.markdown(f"<h3 class='prediction-output'>{result}</h3>", unsafe_allow_html=True)
+        except ValueError as e:
+            st.error(f"Error in prediction: {e}")
 
 st.markdown('</div>', unsafe_allow_html=True)
